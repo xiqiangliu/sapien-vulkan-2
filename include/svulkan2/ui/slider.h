@@ -21,6 +21,22 @@ public:
   void build() override;
 };
 
+UI_CLASS(SliderInt) {
+  UI_ATTRIBUTE(SliderInt, float, WidthRatio);
+  UI_ATTRIBUTE(SliderInt, int, Value);
+  UI_DECLARE_LABEL(SliderInt);
+  UI_ATTRIBUTE(SliderInt, int, Min);
+  UI_ATTRIBUTE(SliderInt, int, Max);
+  UI_ATTRIBUTE(SliderInt, std::function<void(std::shared_ptr<SliderInt>)>, Callback);
+
+  UI_BINDING(SliderInt, int, Value);
+
+public:
+  inline int get() const { return mValue; }
+
+  void build() override;
+};
+
 UI_CLASS(SliderAngle) {
   UI_ATTRIBUTE(SliderAngle, float, WidthRatio);
   UI_ATTRIBUTE(SliderAngle, float, Value);
